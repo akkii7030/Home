@@ -3,10 +3,10 @@ import { useState } from 'react';
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="absolute top-0 left-0 w-full z-50 pt-6 px-4 md:px-12 lg:px-24">
-      <div className="flex items-center justify-between">
-        <div className="logo">
-          <span className="text-2xl md:text-[30px] font-bold text-black leading-none font-sans whitespace-nowrap">
+    <header className="absolute top-0 left-0 w-full z-50 pt-8">
+      <div className="page-container flex items-center justify-between">
+        <div className="logo shrink-0">
+          <span className="text-3xl font-bold text-black leading-none whitespace-nowrap">
             Company Logo
           </span>
         </div>

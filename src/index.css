@@ -27,4 +27,25 @@
     text-underline-offset: 12px;
     text-decoration-thickness: 3px;
   }
+  
+  .page-container {
+    width: 100%;
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 640px) {
+    .page-container { padding-left: 40px; padding-right: 40px; }
+  }
+  @media (min-width: 768px) {
+    .page-container { padding-left: 64px; padding-right: 64px; }
+  }
+  @media (min-width: 1024px) {
+    .page-container { padding-left: 96px; padding-right: 96px; }
+  }
+  @media (min-width: 1280px) {
+    .page-container { padding-left: 140px; padding-right: 140px; }
+  }
 }

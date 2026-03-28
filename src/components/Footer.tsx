@@ -1,7 +1,8 @@
 export const Footer = () => {
   return (
-    <footer className="bg-[#f8f9fa] py-16 md:py-24 mx-4 md:mx-8 xl:mx-12 mb-10 rounded-[40px] md:rounded-[60px] overflow-hidden relative" id="footer">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 xl:px-12">
+    <footer className="page-container mb-10" id="footer">
+      <div className="bg-[#f8f9fa] py-16 md:py-24 rounded-[40px] md:rounded-[60px] overflow-hidden relative px-6 md:px-12 lg:px-20 w-full">
+        <div className="w-full">
         
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 lg:gap-16 mb-16 md:mb-24 border-b border-[#dee2e6] pb-16 md:pb-24">
@@ -91,6 +92,7 @@ export const Footer = () => {
             <p className="text-base md:text-lg text-[#6c757d] font-medium">© 2025. All rights reserved</p>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

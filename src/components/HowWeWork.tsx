@@ -16,7 +16,7 @@ const workItems = [
 export const HowWeWork = () => {
   return (
     <section className="py-20 md:py-32 bg-white" id="services">
-      <div className="max-w-[1300px] mx-auto px-4 md:px-8 xl:px-12">
+      <div className="page-container">
         <p className="text-[#A17339] text-lg font-semibold mb-4">How We Work</p>
         <h2 className="text-4xl md:text-[64px] font-normal leading-[1.1] mb-16 md:mb-24 text-[#101010] max-w-3xl">
           Powering a{' '}
