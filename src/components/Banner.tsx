@@ -1,26 +1,26 @@
 export const Banner = () => {
   return (
-    <section className="bg-[#0C9458] text-white mx-6 overflow-hidden" style={{width: '1536px', height: '1011px', borderBottomRightRadius: '45px', borderBottomLeftRadius: '45px'}}>
-      <div className="px-10">
+    <section className="bg-[#0C9458] text-white mx-4 md:mx-8 xl:mx-12 rounded-[40px] md:rounded-[60px] overflow-hidden pt-16 md:pt-24 pb-0 mb-20" id="banner">
+      <div className="max-w-[1300px] mx-auto px-6 md:px-12">
         {/* Top two columns */}
-        <div className="flex justify-between gap-12 mb-6">
-          <p className="w-[547px] font-medium text-[30px] leading-[120%] tracking-[0%] text-white" style={{fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'}}>
+        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 mb-16 md:mb-24">
+          <p className="w-full lg:w-[540px] font-medium text-3xl md:text-[36px] xl:text-[40px] leading-[1.3] text-white">
             At BioEnergy Solutions, we are dedicated to advancing the development.
           </p>
-          <p className="text-[16px] font-normal leading-[100%] tracking-[0%] text-white w-[491px]" style={{fontFamily: '"Inter", sans-serif'}}>
+          <p className="w-full lg:w-[490px] text-base md:text-[16px] leading-[1.6] text-white/90">
             We manage waste, labor, and produce biomass fuel. Our torrefied pellets and animal stock come from agriculture waste. We also produce Bio Gas Fuel (CBG) from all biomass. We see biofuel as key for India's energy future.
           </p>
         </div>
 
         {/* Heading overlapping image */}
-        <div className="relative">
-          <h2 className="text-[64px] font-light leading-none mb-0 relative z-10">
+        <div className="relative pb-8 md:pb-12 xl:pb-16 mt-8">
+          <h2 className="text-5xl md:text-7xl lg:text-[100px] xl:text-[120px] font-light leading-[0.9] text-white/90 tracking-tight">
             Turning Waste
           </h2>
 
-          <div className="relative rounded-[28px] overflow-hidden h-[380px]">
+          <div className="relative rounded-[28px] md:rounded-[40px] overflow-hidden h-[300px] md:h-[450px] xl:h-[550px] mt-4 shadow-2xl">
             {/* "into Gold" overlays top of image */}
-            <h2 className="absolute top-0 left-6 text-[64px] font-serif italic font-bold leading-none z-10 -translate-y-1">
+            <h2 className="absolute top-4 md:top-8 left-6 md:left-12 text-5xl md:text-7xl lg:text-[100px] xl:text-[120px] font-serif italic font-bold leading-none z-10 text-white tracking-tight drop-shadow-md">
               into Gold
             </h2>
             <img
@@ -28,8 +28,11 @@ export const Banner = () => {
               alt="Plant Operations"
               className="w-full h-full object-cover"
             />
-            <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-black/40 rounded-full flex items-center justify-center">
-              <img src="/Polygon 3.png" alt="Play" className="w-5 ml-1" />
+            <div className="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+            <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:scale-110 active:scale-95 transition-all shadow-2xl group">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="w-8 h-8 md:w-12 md:h-12 ml-1 md:ml-2 group-hover:scale-110 transition-all">
+                <path d="M5 3l14 9-14 9V3z"/>
+              </svg>
             </button>
           </div>
         </div>

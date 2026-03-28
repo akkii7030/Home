@@ -18,25 +18,30 @@ const metrics = [
 
 export const Expertise = () => {
   return (
-    <section className="py-40 bg-white" id="expertise">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row gap-20 lg:gap-32">
-        <div className="w-full md:w-[38%]">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-8 tracking-tighter text-[#101010]">
+    <section className="py-20 md:py-32 bg-white" id="expertise">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 xl:px-12 flex flex-col lg:flex-row gap-16 lg:gap-24">
+        
+        {/* Left side Titles */}
+        <div className="w-full lg:w-[40%] flex flex-col justify-center items-start">
+          <h2 className="text-5xl md:text-[64px] lg:text-[72px] font-normal leading-[1] mb-4 text-[#101010]">
             Proven Expertise
           </h2>
-          <p className="text-2xl md:text-3xl text-[#6c757d] mb-12 lg:mb-16 font-medium">A Legacy of Success</p>
-          <button className="flex items-center gap-4 bg-primary text-white py-4 px-10 rounded-full font-bold text-xl transition-transform hover:scale-105 active:scale-95 shadow-lg">
-            Contact Us 
-            <span className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-serif">↗</span>
+          <p className="text-xl md:text-[24px] text-[#555] mb-10 font-normal">A Legacy of Success</p>
+          <button className="flex items-center gap-3 bg-[#0C9458] text-white py-3 pl-8 pr-3 w-fit rounded-[30px] font-medium text-lg group transition-all hover:brightness-105 active:scale-95 shadow-xl">
+            <span>Contact Us</span>
+            <span className="w-9 h-9 bg-white rounded-full flex items-center justify-center text-[#0C9458] group-hover:-rotate-45 transition-transform overflow-hidden">
+                <img src="/arrow-right-up.png" alt="" className="w-3 h-3 object-contain" />
+            </span>
           </button>
         </div>
         
-        <div className="w-full md:w-[62%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-14">
+        {/* Right side Metrics Grid */}
+        <div className="w-full lg:w-[60%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-x-12 md:gap-y-16">
           {metrics.map((m, i) => (
-            <div className="border-l-2 border-[#e9ecef] pl-10 md:pl-12" key={i}>
-              <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#101010] mb-4 leading-none tracking-tight">{m.value}</h3>
-              <h4 className="text-xl lg:text-3xl font-bold mb-6 leading-tight">{m.label}</h4>
-              <p className="text-base lg:text-xl text-[#555] leading-relaxed font-medium">{m.desc}</p>
+            <div className="flex flex-col border-l border-[#d0d0d0] pl-6 md:pl-8" key={i}>
+              <h3 className="text-5xl md:text-[56px] font-normal text-[#101010] mb-3 leading-none tracking-tight">{m.value}</h3>
+              <h4 className="text-lg md:text-[20px] font-bold mb-4 leading-snug text-[#101010]">{m.label}</h4>
+              <p className="text-sm md:text-[15px] text-[#555] leading-relaxed mb-auto pr-4">{m.desc}</p>
             </div>
           ))}
         </div>
