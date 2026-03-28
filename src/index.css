@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-primary-light: #e8f5e9;
+  --color-primary: #0C9458;
+  --color-primary-dark: #0A7D4A;
+  --color-accent: #9e8450;
+  
+  --radius-full: 9999px;
+  --radius-md: 24px;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-[#101010] antialiased;
+  }
+}
+
+@layer utilities {
+  .underline-green-wavy {
+    text-decoration: underline;
+    text-decoration-color: #16a05d;
+    text-decoration-style: wavy;
+    text-underline-offset: 12px;
+    text-decoration-thickness: 3px;
+  }
+}
