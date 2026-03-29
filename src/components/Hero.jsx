@@ -125,7 +125,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent pointer-events-none"></div>
       </div>
       
-      <div className="relative z-10 w-full pt-36 sm:pt-40 lg:pt-56 pb-16 sm:pb-20 min-h-[760px] md:min-h-[860px] lg:min-h-[980px] flex flex-col justify-between">
+      <div className="relative z-10 w-full pt-28 sm:pt-32 lg:pt-40 pb-16 sm:pb-20 min-h-[760px] md:min-h-[860px] lg:min-h-[980px] flex flex-col justify-between">
         
         {/* Main Context Wrap */}
         <div className="page-container">

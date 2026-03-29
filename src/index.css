@@ -207,8 +207,14 @@
   .hero-word-wrap {
     display: inline-block;
     overflow: hidden;
-    margin-right: 0.28em;
+    margin-right: 0.18em;
     vertical-align: bottom;
+    line-height: 1.16;
+    padding-left: 0.03em;
+    padding-right: 0.1em;
+    padding-bottom: 0.16em;
+    margin-left: -0.03em;
+    margin-bottom: -0.16em;
   }
 
   .hero-word {
