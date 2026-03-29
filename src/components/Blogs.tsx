@@ -58,7 +58,7 @@ export const Blogs = () => {
                   </svg>
                   
                   {/* The Green Button */}
-                  <button className="w-[64px] h-[64px] md:w-[76px] md:h-[76px] bg-[#0C9458] text-white text-xl rounded-tl-[24px] md:rounded-tl-[32px] rounded-br-[32px] md:rounded-br-[40px] rounded-tr-[50%] rounded-bl-[50%] flex items-center justify-center transition-transform group-hover:-rotate-12 shadow-md relative z-20">
+                  <button className="w-[64px] h-[64px] md:w-[76px] md:h-[76px] bg-[#0C9458] text-white rounded-full flex items-center justify-center transition-transform group-hover:-rotate-12 shadow-md relative z-20">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="-rotate-45">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>

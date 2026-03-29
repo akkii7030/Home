@@ -1,63 +1,52 @@
 export const About = () => {
   return (
-    <section className="py-24 md:py-32 bg-white" id="about">
-      <div className="page-container w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
-        
-        {/* Left Side Image (Wood Pellets) */}
-        <div className="hidden lg:block w-[280px] xl:w-[320px] shrink-0">
-          <img
-            src="/2151239320 1.png"
-            className="w-full h-[400px] xl:h-[450px] object-cover rounded-[32px] shadow-xl"
-            alt="Resources"
-          />
-        </div>
+    <section className="relative py-20 bg-white overflow-hidden" id="about">
+      {/* Left image */}
+      <img
+        src="/2151239320 1.png"
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] h-[360px] object-cover rounded-3xl"
+        alt="Resources"
+      />
+      {/* Right image */}
+      <img
+        src="/142346 1.png"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[260px] h-[260px] object-cover rounded-full"
+        alt="Environment"
+      />
 
-        {/* Center content */}
-        <div className="max-w-[700px] mx-auto text-center flex flex-col items-center">
-          <p className="text-[#A17339] font-medium text-lg md:text-xl mb-6">About Us</p>
+      {/* Center content */}
+      <div className="max-w-[800px] mx-auto text-center relative z-10 px-4">
+        <p className="text-[#A17339] font-medium text-[16px] mb-3">About Us</p>
 
-          <h2 className="text-4xl md:text-[56px] font-normal leading-[1.15] text-[#101010] mb-12 flex flex-col items-center">
-            <span>We see a growing business</span>
-            <span className="relative inline-block mt-2">
-              where the world see&rsquo;s waste
-              <svg
-                width="318"
-                height="10"
-                viewBox="0 0 318 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[85%] text-[#0C9458]"
-              >
-                <path d="M2 8C70 2 248 2 316 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </span>
-          </h2>
+        <h2 className="mx-auto text-center mb-2" style={{width: '767px', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: 400, fontSize: '56px', lineHeight: '100%', letterSpacing: '0%', color: '#000000'}}>
+          We see a growing business where the world see&rsquo;s waste
+        </h2>
 
-          <p className="text-xl md:text-[22px] font-bold text-[#101010] mb-8 leading-[1.4] max-w-[600px] mx-auto">
-            We are committed to environmental conservation and climate-resilient economic development.
-          </p>
+        <svg
+          className="mx-auto mb-8 block"
+          width="429"
+          height="10"
+          viewBox="0 0 429 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M2 8C94 2 335 2 427 8" stroke="#0C9458" strokeWidth="4" strokeLinecap="round" />
+        </svg>
 
-          <p className="text-base md:text-[17px] text-[#555] leading-[1.6] mb-12 max-w-[600px] mx-auto">
-            Explores building an ecosystem for sustainable operations Ours is a leading waste management and labor conglomerate , offering sustainable solutions with innovative technologies and a comprehensive approach to waste treatment .
-          </p>
+        <p className="text-[18px] font-bold text-[#101010] mb-6 leading-snug">
+          We are committed to environmental conservation and climate-resilient economic development.
+        </p>
 
-          <button className="flex items-center gap-4 bg-[#0C9458] text-white py-3 pl-8 pr-3 w-fit rounded-full font-medium text-lg mx-auto group transition-all hover:scale-105 active:scale-95 shadow-[0_8px_20px_rgba(12,148,88,0.3)]">
-            <span>About Us</span>
-            <span className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0C9458] group-hover:-rotate-45 transition-transform">
-                <img src="/arrow-right-up.png" alt="" className="w-3 h-3 object-contain" />
-            </span>
-          </button>
-        </div>
+        <p className="text-[15px] text-[#555] leading-relaxed mb-10">
+          Explores building an ecosystem for sustainable operations Ours is a leading waste management and labor conglomerate, offering sustainable solutions with innovative technologies and a comprehensive approach to waste treatment.
+        </p>
 
-        {/* Right Side Image (Green Silo) */}
-        <div className="hidden lg:block w-[300px] xl:w-[350px] shrink-0">
-          <img
-            src="/142346 1.png"
-            className="w-full aspect-square object-cover rounded-full shadow-xl"
-            alt="Environment"
-          />
-        </div>
-        
+        <button className="flex items-center gap-4 bg-[#0C9458] text-white py-3 px-8 rounded-full font-semibold text-[16px] mx-auto">
+          About Us
+          <span className="w-9 h-9 bg-white rounded-full flex items-center justify-center text-[#0C9458]">
+            ↗
+          </span>
+        </button>
       </div>
     </section>
   );

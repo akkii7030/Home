@@ -16,6 +16,12 @@
 @layer base {
   body {
     @apply font-sans bg-white text-[#101010] antialiased;
+    overflow-x: hidden;
+  }
+
+  .landing-page {
+    width: 1536px;
+    transform-origin: top left;
   }
 }
 

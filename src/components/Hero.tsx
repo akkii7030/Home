@@ -6,7 +6,7 @@ export const Hero = () => {
       <Navbar />
       
       {/* Background Image Container */}
-      <div className="absolute inset-x-0 top-[150px] bottom-0 z-0">
+      <div className="absolute inset-x-0 z-0" style={{top: '67px', width: '1536.31px', height: '878px'}}>
         <img 
           src="/32104_4564 1.png" 
           alt="Hero Background" 
