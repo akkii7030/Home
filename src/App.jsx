@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isMobileViewport = window.matchMedia('(max-width: 767px)').matches
     if (prefersReducedMotion) return
 
     const ctx = gsap.context(() => {
@@ -35,6 +36,11 @@ function App() {
 
       const elements = gsap.utils.toArray('.reveal-on-scroll')
       elements.forEach((element) => {
+        const isFooterElement = Boolean(element.closest('#footer'))
+        const revealStart = isMobileViewport
+          ? (isFooterElement ? 'top 98%' : 'top 94%')
+          : 'top 86%'
+
         gsap.fromTo(
           element,
           { autoAlpha: 0, y: 28 },
@@ -45,7 +51,7 @@ function App() {
             ease: 'power3.out',
             scrollTrigger: {
               trigger: element,
-              start: 'top 86%',
+              start: revealStart,
               once: true,
             },
           },
