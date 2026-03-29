@@ -4,7 +4,7 @@ export const Footer = () => {
       <div className="bg-[#f8f9fa] py-14 md:py-20 rounded-[32px] md:rounded-[60px] overflow-hidden relative px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
         <div className="w-full">
           <div className="mb-8 md:mb-10 reveal-on-scroll reveal-delay-1">
-            <img src="/logo.png" alt="Company Logo" className="h-12 md:h-14 w-auto object-contain" />
+            <img src="/logo.png" alt="Company Logo" className="h-10 sm:h-12 md:h-14 w-auto object-contain mx-auto md:mx-0" />
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 lg:gap-16 mb-12 md:mb-20 border-b border-[#dee2e6] pb-12 md:pb-20 reveal-on-scroll reveal-delay-1">

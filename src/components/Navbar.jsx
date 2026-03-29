@@ -51,7 +51,7 @@ export const Navbar = () => {
     <header className="absolute top-0 left-0 w-full z-50 pt-4 sm:pt-6 lg:pt-8 reveal-fade">
       <div className="page-container flex items-center justify-between gap-4">
         <div className="logo shrink-0">
-          <img src="/logo.png" alt="Company Logo" className="h-10 sm:h-12 lg:h-14 w-auto object-contain" />
+          <img src="/logo.png" alt="Company Logo" className="h-8 sm:h-10 lg:h-12 w-auto object-contain" />
         </div>
 
         <nav className="hidden md:flex items-center gap-6 lg:gap-10 reveal-up reveal-up-delay-1">
