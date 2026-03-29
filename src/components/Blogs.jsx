@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useFetch } from '../hooks/useFetch'
 import { loadBlogs } from '../api'
 
@@ -8,18 +11,51 @@ const fallbackCards = [
 ]
 
 export const Blogs = () => {
+  const blogsRef = useRef(null)
   const { data, loading, error } = useFetch(loadBlogs)
 
   const blogCards = Array.isArray(data) && data.length > 0
     ? data.map((b) => ({ image: b.image || '/43337 2.png', title: b.title, desc: b.description }))
     : fallbackCards
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray('.blog-card')
+      if (!cards.length) return
+
+      gsap.fromTo(
+        cards,
+        { y: 48, rotateZ: 1.4, autoAlpha: 0 },
+        {
+          y: 0,
+          rotateZ: 0,
+          autoAlpha: 1,
+          duration: 0.72,
+          ease: 'power3.out',
+          stagger: 0.16,
+          scrollTrigger: {
+            trigger: blogsRef.current,
+            start: 'top 72%',
+            once: true,
+          },
+        },
+      )
+    }, blogsRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="py-20 md:py-32 bg-white" id="blogs">
+    <section className="py-20 md:py-32 bg-white reveal-on-scroll" id="blogs" ref={blogsRef}>
       <div className="page-container">
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
         {loading && <p className="text-[#0C9458] text-sm mb-4">Loading blogs...</p>}
-        <p className="text-[#A17339] text-lg font-semibold mb-4">News and Blogs</p>
-        <h2 className="text-4xl md:text-[64px] font-normal leading-[1.1] mb-12 md:mb-20 text-[#101010] max-w-3xl">
+        <p className="text-[#A17339] text-lg font-semibold mb-4 reveal-on-scroll reveal-delay-1">News and Blogs</p>
+        <h2 className="text-4xl md:text-[64px] font-normal leading-[1.1] mb-12 md:mb-20 text-[#101010] max-w-3xl reveal-on-scroll reveal-delay-1">
           Powering a{' '}
           <span className="relative inline-block font-medium">
             Sustainable
@@ -40,8 +76,8 @@ export const Blogs = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 xl:gap-12 w-full">
           {blogCards.map((blog, i) => (
-            <div className="group flex flex-col cursor-pointer" key={i}>
-              <div className="relative rounded-[32px] md:rounded-[40px] overflow-hidden mb-6 md:mb-8 bg-gray-100 shadow-lg aspect-[433/361]">
+            <div className={`blog-card group flex flex-col cursor-pointer ${i === 0 ? 'reveal-delay-1' : i === 1 ? 'reveal-delay-2' : 'reveal-delay-3'}`} key={i}>
+              <div className="relative rounded-[32px] md:rounded-[40px] overflow-hidden mb-6 md:mb-8 bg-gray-100 shadow-lg aspect-[433/361] interactive-tilt">
                 <img src={blog.image} alt={blog.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 
                 {/* Precise Cutout Box for Bottom Right Corner */}
@@ -56,7 +92,7 @@ export const Blogs = () => {
                   </svg>
                   
                   {/* The Green Button */}
-                  <button className="w-[64px] h-[64px] md:w-[76px] md:h-[76px] bg-[#0C9458] text-white rounded-full flex items-center justify-center transition-transform group-hover:-rotate-12 shadow-md relative z-20">
+                  <button className="w-[64px] h-[64px] md:w-[76px] md:h-[76px] bg-[#0C9458] text-white rounded-full flex items-center justify-center transition-transform group-hover:-rotate-12 shadow-md relative z-20 interactive-button">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="-rotate-45">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -70,7 +106,7 @@ export const Blogs = () => {
         </div>
         
         <div className="mt-16 md:mt-24 h-2 md:h-3 bg-[#e9ecef] rounded-full overflow-hidden w-full lg:w-1/2 mx-auto">
-          <div className="h-full bg-[#0C9458] w-1/3 rounded-full shadow-sm"></div>
+          <div className="h-full bg-[#0C9458] w-1/3 rounded-full shadow-sm animated-progress"></div>
         </div>
       </div>
     </section>

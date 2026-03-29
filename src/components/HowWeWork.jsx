@@ -35,13 +35,13 @@ export const HowWeWork = () => {
   const expandedItem = workItems.find((item) => item.active) ?? workItems[0]
 
   return (
-    <section className="py-16 md:py-24 bg-white" id="services">
+    <section className="py-16 md:py-24 bg-white reveal-on-scroll" id="services">
       <div className="page-container">
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
         {loading && <p className="text-[#0C9458] text-sm mb-4">Loading services...</p>}
 
-        <p className="text-[#A17339] text-base md:text-lg font-semibold mb-4">How We Work</p>
-        <h2 className="text-3xl sm:text-4xl md:text-[64px] font-normal leading-[1.1] mb-12 md:mb-20 text-[#101010] max-w-3xl">
+        <p className="text-[#A17339] text-base md:text-lg font-semibold mb-4 reveal-on-scroll reveal-delay-1">How We Work</p>
+        <h2 className="text-3xl sm:text-4xl md:text-[64px] font-normal leading-[1.1] mb-12 md:mb-20 text-[#101010] max-w-3xl reveal-on-scroll reveal-delay-1">
           Powering a{' '}
           <span className="relative inline-block font-medium">
             Sustainable
@@ -77,7 +77,7 @@ export const HowWeWork = () => {
               </div>
               <div className="md:col-span-1 lg:col-span-1 flex md:justify-end">
                 <button
-                  className={`w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center text-lg border transition-colors shrink-0 ${
+                  className={`w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center text-lg border transition-colors shrink-0 interactive-button ${
                     item.active
                       ? 'bg-[#0C9458] text-white border-[#0C9458] shadow-lg'
                       : 'bg-white text-[#101010] border-[#ccc] hover:bg-gray-50'
@@ -91,7 +91,7 @@ export const HowWeWork = () => {
             </div>
           ))}
 
-          <div className="mt-8 mb-14 h-[250px] sm:h-[320px] md:h-[500px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl relative">
+          <div className="mt-8 mb-14 h-[250px] sm:h-[320px] md:h-[500px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl relative reveal-on-scroll reveal-delay-2">
             <img
               src={expandedItem?.image || fallbackServiceImage}
               alt={expandedItem?.title ?? 'Biomass Fuel Image'}
@@ -103,7 +103,7 @@ export const HowWeWork = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 py-8 md:py-10 border-t border-[#d0d0d0] items-start md:items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 py-8 md:py-10 border-t border-[#d0d0d0] items-start md:items-center reveal-on-scroll reveal-delay-2">
             <div className="md:col-span-1">
               <span className="text-2xl md:text-[32px] text-[#101010] font-normal">03</span>
             </div>
@@ -116,7 +116,7 @@ export const HowWeWork = () => {
               </p>
             </div>
             <div className="md:col-span-1 lg:col-span-1 flex md:justify-end">
-              <button className="w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center text-lg border bg-white text-[#101010] border-[#ccc] hover:bg-gray-50 shrink-0 transition-colors">
+              <button className="w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center text-lg border bg-white text-[#101010] border-[#ccc] hover:bg-gray-50 shrink-0 transition-colors interactive-button">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
