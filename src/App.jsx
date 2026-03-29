@@ -10,7 +10,7 @@ import { Footer } from './components/Footer'
 function App() {
   useEffect(() => {
     const scale = () => {
-      const el = document.querySelector('.landing-page') as HTMLElement
+      const el = document.querySelector('.landing-page')
       if (!el) return
       const ratio = window.innerWidth / 1536
       el.style.transform = `scale(${ratio})`

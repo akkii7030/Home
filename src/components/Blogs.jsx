@@ -1,25 +1,23 @@
-const blogCards = [
-  {
-    image: '/43337 2.png',
-    title: 'Sustainability Practices in Bioenergy Production',
-    desc: 'We have a rich history of delivering sustainable waste management solutions. We have a deep understanding of the challenges faced by our clients',
-  },
-  {
-    image: '/2148642963 1.png',
-    title: 'Natural Solutions for Health and Wellness',
-    desc: 'We have a rich history of delivering sustainable waste management solutions. We have a deep understanding of the challenges faced by our clients',
-  },
-  {
-    image: '/Blog-HS-Best-Charcoal-Lead 1.png',
-    title: 'Modern Technology for Optimal Health',
-    desc: 'We have a rich history of delivering sustainable waste management solutions. We have a deep understanding of the challenges faced by our clients',
-  },
+import { useFetch } from '../hooks/useFetch'
+import { loadBlogs } from '../api'
+
+const fallbackCards = [
+  { image: '/43337 2.png', title: 'Sustainability Practices in Bioenergy Production', desc: 'We have a rich history of delivering sustainable waste management solutions. We have a deep understanding of the challenges faced by our clients' },
+  { image: '/2148642963 1.png', title: 'Natural Solutions for Health and Wellness', desc: 'We have a rich history of delivering sustainable waste management solutions. We have a deep understanding of the challenges faced by our clients' },
+  { image: '/Blog-HS-Best-Charcoal-Lead 1.png', title: 'Modern Technology for Optimal Health', desc: 'We have a rich history of delivering sustainable waste management solutions. We have a deep understanding of the challenges faced by our clients' },
 ]
 
 export const Blogs = () => {
+  const { data, loading, error } = useFetch(loadBlogs)
+
+  const blogCards = Array.isArray(data) && data.length > 0
+    ? data.map((b) => ({ image: b.image || '/43337 2.png', title: b.title, desc: b.description }))
+    : fallbackCards
   return (
     <section className="py-20 md:py-32 bg-white" id="blogs">
       <div className="page-container">
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {loading && <p className="text-[#0C9458] text-sm mb-4">Loading blogs...</p>}
         <p className="text-[#A17339] text-lg font-semibold mb-4">News and Blogs</p>
         <h2 className="text-4xl md:text-[64px] font-normal leading-[1.1] mb-12 md:mb-20 text-[#101010] max-w-3xl">
           Powering a{' '}

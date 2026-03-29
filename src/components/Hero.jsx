@@ -1,17 +1,29 @@
-import { Navbar } from './Navbar';
+import { Navbar } from './Navbar'
+import { useFetch } from '../hooks/useFetch'
+import { loadBanners } from '../api'
 
 export const Hero = () => {
+  const { data: banners, loading, error } = useFetch(loadBanners)
+  const banner = banners?.[0]
+  const fallbackHeroImage = '/32104_4564 1.png'
+
   return (
     <section className="relative w-full overflow-hidden bg-white" id="home">
       <Navbar />
       
-      {/* Background Image Container */}
+      {loading && <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60"><span className="text-[#0C9458] text-lg">Loading...</span></div>}
+      {error && <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm">{error}</div>}
+      
       <div className="absolute inset-x-0 z-0" style={{top: '67px', width: '1536.31px', height: '878px'}}>
         <img 
-          src="/32104_4564 1.png" 
-          alt="Hero Background" 
+          src={banner?.image || fallbackHeroImage} 
+          alt={banner?.title ?? 'Hero Background'} 
           className="w-full h-full object-cover object-top"
           style={{ objectPosition: 'center 15%' }}
+          onError={(event) => {
+            event.currentTarget.onerror = null
+            event.currentTarget.src = fallbackHeroImage
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent pointer-events-none"></div>
       </div>

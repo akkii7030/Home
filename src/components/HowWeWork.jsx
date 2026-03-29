@@ -1,22 +1,30 @@
-const workItems = [
-  {
-    id: '01',
-    title: 'Integrated Solid Waste Management',
-    desc: 'is a comprehensive approach to managing waste that combines various waste management techniques to minimize environmental impact and promote sustainability.',
-    active: false,
-  },
-  {
-    id: '02',
-    title: 'Biomass Fuel & Green Energy',
-    desc: 'Biomass fuel is a renewable energy source derived from organic materials such as plants, agricultural and forestry residues, animal waste, and industrial by-products.',
-    active: true,
-  },
+import { useFetch } from '../hooks/useFetch'
+import { loadServices } from '../api'
+
+const fallbackItems = [
+  { id: '01', title: 'Integrated Solid Waste Management', desc: 'is a comprehensive approach to managing waste that combines various waste management techniques to minimize environmental impact and promote sustainability.', active: false, image: '/43963 1.png' },
+  { id: '02', title: 'Biomass Fuel & Green Energy', desc: 'Biomass fuel is a renewable energy source derived from organic materials such as plants, agricultural and forestry residues, animal waste, and industrial by-products.', active: true, image: '/43963 1.png' },
 ]
 
 export const HowWeWork = () => {
+  const { data, loading, error } = useFetch(loadServices)
+  const fallbackServiceImage = '/43963 1.png'
+
+  const workItems = Array.isArray(data) && data.length > 0
+    ? data.slice(0, 2).map((s, i) => ({
+      id: String(i + 1).padStart(2, '0'),
+      title: s.title,
+      desc: s.description,
+      active: i === 1,
+      image: s.image || fallbackServiceImage,
+    }))
+    : fallbackItems
+  const expandedItem = workItems.find((item) => item.active) ?? workItems[0]
   return (
     <section className="py-20 md:py-32 bg-white" id="services">
       <div className="page-container">
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {loading && <p className="text-[#0C9458] text-sm mb-4">Loading services...</p>}
         <p className="text-[#A17339] text-lg font-semibold mb-4">How We Work</p>
         <h2 className="text-4xl md:text-[64px] font-normal leading-[1.1] mb-16 md:mb-24 text-[#101010] max-w-3xl">
           Powering a{' '}
@@ -70,7 +78,15 @@ export const HowWeWork = () => {
 
           {/* Expanded Content for 02 */}
           <div className="mt-8 mb-16 h-[300px] md:h-[500px] rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl relative">
-            <img src="/43963 1.png" alt="Biomass Fuel Image" className="w-full h-full object-cover" />
+            <img
+              src={expandedItem?.image || fallbackServiceImage}
+              alt={expandedItem?.title ?? 'Biomass Fuel Image'}
+              className="w-full h-full object-cover"
+              onError={(event) => {
+                event.currentTarget.onerror = null
+                event.currentTarget.src = fallbackServiceImage
+              }}
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-10 border-t border-[#d0d0d0] items-start md:items-center">
