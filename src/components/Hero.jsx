@@ -14,7 +14,7 @@ export const Hero = () => {
       {loading && <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60"><span className="text-[#0C9458] text-lg">Loading...</span></div>}
       {error && <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm">{error}</div>}
       
-      <div className="absolute inset-x-0 z-0" style={{top: '67px', width: '1536.31px', height: '878px'}}>
+      <div className="absolute inset-0 z-0">
         <img 
           src={banner?.image || fallbackHeroImage} 
           alt={banner?.title ?? 'Hero Background'} 
@@ -28,16 +28,16 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent pointer-events-none"></div>
       </div>
       
-      <div className="relative z-10 w-full pt-[200px] lg:pt-[240px] pb-[80px] min-h-[1000px] flex flex-col justify-between">
+      <div className="relative z-10 w-full pt-36 sm:pt-40 lg:pt-56 pb-16 sm:pb-20 min-h-[760px] md:min-h-[860px] lg:min-h-[980px] flex flex-col justify-between">
         
         {/* Main Context Wrap */}
         <div className="page-container">
           <div className="w-full relative">
             <h1 className="leading-[1] tracking-tight mb-8">
-              <span className="block font-normal text-6xl md:text-[80px] lg:text-[100px] text-black w-full">
+              <span className="block font-normal text-[40px] sm:text-6xl md:text-[80px] lg:text-[100px] text-black w-full">
                 Unlocking Tomorrow's
               </span>
-              <span className="block font-medium italic text-6xl md:text-[90px] lg:text-[110px] text-black ml-0 md:ml-32 lg:ml-48 mt-2">
+              <span className="block font-medium italic text-[42px] sm:text-6xl md:text-[90px] lg:text-[110px] text-black ml-0 md:ml-20 lg:ml-40 mt-2">
                 Green Energy
               </span>
             </h1>
@@ -56,7 +56,7 @@ export const Hero = () => {
         </div>
 
         {/* Floating Bottom Info Layer */}
-        <div className="page-container mt-32 z-20">
+        <div className="page-container mt-16 sm:mt-24 lg:mt-32 z-20">
           <div className="flex flex-col xl:flex-row items-end xl:items-center justify-between gap-6 w-full">
             
             {/* Left Box Container */}

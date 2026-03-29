@@ -1,6 +1,6 @@
 export const Banner = () => {
   return (
-    <section className="page-container mb-20" id="banner">
+    <section className="page-container mb-0" id="banner">
       <div className="bg-[#0C9458] text-white rounded-[40px] md:rounded-[60px] overflow-hidden pt-16 md:pt-24 pb-0 px-6 md:px-12 lg:px-16 w-full">
         <div className="w-full">
           {/* Top two columns */}
