@@ -41,7 +41,7 @@ function App() {
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.85,
+            duration: 0.55,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: element,

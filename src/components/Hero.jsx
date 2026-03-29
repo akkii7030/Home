@@ -33,12 +33,12 @@ export const Hero = () => {
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
       intro
-        .from(titleTopWordRefs.current, { yPercent: 120, autoAlpha: 0, duration: 0.75, stagger: 0.07 })
-        .from(titleBottomWordRefs.current, { yPercent: 120, autoAlpha: 0, duration: 0.75, stagger: 0.07 }, '-=0.45')
-        .from(paragraphRef.current, { y: 28, autoAlpha: 0, duration: 0.6 }, '-=0.45')
-        .from(ctaRef.current, { y: 24, autoAlpha: 0, scale: 0.95, duration: 0.5 }, '-=0.3')
-        .from([mainCardRef.current, counterCardRef.current], { y: -80, autoAlpha: 0, duration: 0.95, stagger: 0.14, ease: 'back.out(1.4)' }, '-=0.08')
-        .from(arrowsRef.current, { y: 24, autoAlpha: 0, duration: 0.5 }, '-=0.45')
+        .from(titleTopWordRefs.current, { yPercent: 120, autoAlpha: 0, duration: 0.48, stagger: 0.04 })
+        .from(titleBottomWordRefs.current, { yPercent: 120, autoAlpha: 0, duration: 0.48, stagger: 0.04 }, '-=0.3')
+        .from(paragraphRef.current, { y: 22, autoAlpha: 0, duration: 0.34 }, '-=0.3')
+        .from(ctaRef.current, { y: 18, autoAlpha: 0, scale: 0.96, duration: 0.3 }, '-=0.2')
+        .from([mainCardRef.current, counterCardRef.current], { y: -64, autoAlpha: 0, duration: 0.56, stagger: 0.08, ease: 'back.out(1.2)' }, '-=0.04')
+        .from(arrowsRef.current, { y: 18, autoAlpha: 0, duration: 0.3 }, '-=0.28')
 
       gsap.fromTo(bgRef.current, { xPercent: 18, scale: 1.06, autoAlpha: 0.75 }, { xPercent: 0, scale: 1, autoAlpha: 1, duration: 1.2, ease: 'power2.out' })
 
@@ -174,7 +174,7 @@ export const Hero = () => {
           <div className="flex flex-col xl:flex-row items-end xl:items-center justify-between gap-6 w-full">
             
             {/* Left Box Container */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 w-full xl:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-6 w-full xl:w-auto">
               <div 
                 ref={mainCardRef}
                 className="flex items-center gap-6 border border-white/30 p-5 md:p-6 shadow-2xl rounded-[24px] backdrop-blur-[20px] w-full xl:w-[540px] interactive-tilt"
