@@ -170,7 +170,7 @@ export const Hero = () => {
         </div>
 
         {/* Floating Bottom Info Layer */}
-        <div className="page-container mt-16 sm:mt-24 lg:mt-32 z-20">
+        <div className="page-container mt-24 sm:mt-24 lg:mt-32 z-20">
           <div className="flex flex-col xl:flex-row items-end xl:items-center justify-between gap-6 w-full">
             
             {/* Left Box Container */}
